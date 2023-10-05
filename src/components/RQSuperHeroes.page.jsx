@@ -7,7 +7,15 @@ const fetchSuperHeroes = () => {
 }
 
 const RQSuperHeroes = () => {
-    const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
+
+  const onSuccess = () => {
+    console.log("Perform side effect after data fetching")
+  };
+
+  const onError = () => {
+    console.log("Perform side effect after data fetching");
+  }
+  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
       "super-heroes",
       fetchSuperHeroes,
       {
@@ -18,18 +26,20 @@ const RQSuperHeroes = () => {
         //refetchInterval: 2000,
         //refetchIntervalInBackground: true,
         enabled: false,
+        onSuccess,
+        onError,
       }
-    );
+  );
 
-    console.log(`Loading: ${isLoading}, Fetching: ${isFetching}`);
+  console.log(`Loading: ${isLoading}, Fetching: ${isFetching}`);
 
-    if(isLoading || isFetching){
-        return <h2>Loading...</h2>
-    }
+  if(isLoading || isFetching){
+    return <h2>Loading...</h2>
+  }
 
-    if(isError){
-        return <h2>{error.message}</h2>
-    }
+  if(isError){
+    return <h2>{error.message}</h2>
+  }
 
   return (
     <Fragment>
