@@ -13,8 +13,10 @@ const RQSuperHeroes = () => {
       {
         //cacheTime: 5 minutes,
         //staleTime: 0 seconds,
-        refetchOnMount: true, //false, 'always',
-        refetchOnWindowFocus: true, //false, 'always',
+        //refetchOnMount: true, false, 'always',
+        //refetchOnWindowFocus: true, false, 'always',
+        refetchInterval: 2000,
+        refetchIntervalInBackground: true,
       }
     );
 
