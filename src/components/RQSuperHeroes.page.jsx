@@ -25,9 +25,13 @@ const RQSuperHeroes = () => {
         //refetchOnWindowFocus: true, false, 'always',
         //refetchInterval: 2000,
         //refetchIntervalInBackground: true,
-        enabled: false,
+        //enabled: false,
         onSuccess,
         onError,
+        select: (data) => {
+          const superHeroNames = data.data.map(hero => hero.name);
+          return superHeroNames;
+        }
       }
   );
 
@@ -45,6 +49,7 @@ const RQSuperHeroes = () => {
     <Fragment>
       <h2>RQ Super Heroes Page</h2>
       <button onClick={refetch}>fetch heroes</button>
+      {/*
       {
         data?.data.map((hero) => {
             return (
@@ -54,6 +59,17 @@ const RQSuperHeroes = () => {
             )
         })
       }
+    */}
+
+    {
+      data.map(heroName => {
+        return (
+          <div key={heroName}>
+              <p>{heroName}</p>
+          </div>
+        )
+      })
+    }
     </Fragment>
   )
 }
