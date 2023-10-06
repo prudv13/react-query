@@ -5,6 +5,7 @@ import RQSuperHeroes from './components/RQSuperHeroes.page';
 import Home from './components/Home.page';
 import RQSuperHero from './components/RQSuperHero';
 import ParallelQueries from './components/ParallelQueries';
+import DynamicParallel from './components/DynamicParallel';
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
           <li>
             <Link to='/rq-parallel'>RQ Parallel Queries</Link>
           </li>
+          <li>
+            <Link to='/rq-dynamic-parallel'>Dynamic Parallel Queries</Link>
+          </li>
         </ul>
       </nav>
 
@@ -33,6 +37,7 @@ const App = () => {
         <Route path='/rq-super-heroes/:heroId' element={<RQSuperHero />} />
         <Route path='/rq-super-heroes' element={<RQSuperHeroes />} />
         <Route path='/rq-parallel' element={<ParallelQueries />} />
+        <Route path='/rq-dynamic-parallel' element={<DynamicParallel heroIds={[1, 3]} />} />
       </Routes>
     </div>
   )
