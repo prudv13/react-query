@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 const SuperHeroes = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState('');
 
     useEffect(() => {
       (async() => {
@@ -14,7 +15,7 @@ const SuperHeroes = () => {
           setIsLoading(false);
         }
         catch(error){
-          console.log(error);
+          setError(error.message);
           setIsLoading(false);
         }
       })();
@@ -23,6 +24,10 @@ const SuperHeroes = () => {
     if(isLoading) {
         return <h2 style={{margin: "30px"}}>Loading...</h2>
     }
+
+    if(error) {
+      return <h2 style={{margin: "30px", color:"red"}}>{error}</h2>
+  }
   return (
     <div style={{margin: "30px"}}>
         <h2 style={{marginBottom: "20px"}}>Super Heroes</h2>
