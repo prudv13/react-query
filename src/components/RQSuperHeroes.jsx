@@ -8,10 +8,14 @@ function fetchSuperHeroes(){
 
 const RQSuperHeroes = () => {
 
-    const {data, isLoading} = useQuery(['super-heroes'], () => fetchSuperHeroes());
+    const {data, isLoading, isError, error} = useQuery(['super-heroes'], () => fetchSuperHeroes());
     
     if(isLoading) {
         return <h2 style={{margin: "30px"}}>Loading...</h2>
+    }
+
+    if(isError){
+        return <h2 style={{margin: "30px", color:"red"}}>{error.message}</h2>
     }
 
     return (

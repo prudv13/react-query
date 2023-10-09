@@ -9,7 +9,7 @@ const SuperHeroes = () => {
     useEffect(() => {
       (async() => {
         try {
-          const response = await axios.get('http://localhost:4000/superheroes1');
+          const response = await axios.get('http://localhost:4000/superheroes');
           const superheroesdata = await response.data;
           setData(superheroesdata);
           setIsLoading(false);
