@@ -1,10 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import useSuperHeroesData from '../hooks/useSuperHeroesData';
 
-
-function fetchSuperHeroes(){
-    return axios.get('http://localhost:4000/superheroes')
-}
 
 const RQSuperHeroes = () => {
 
@@ -16,22 +11,7 @@ const RQSuperHeroes = () => {
         console.log("Perform side effect after encountering error");
     }
 
-    const {data, isLoading, isFetching, isError, error, refetch} = useQuery(['super-heroes'], () => fetchSuperHeroes(), {
-        //cacheTime: 5000,
-        //staleTime: 30000,
-        //refetchOnMount: true, false, 'always',
-        //refetchOnWindowFocus: true, false,
-        //refetchInterval: false, 2000,
-        //refetchIntervalInBackground: true,
-        enabled: false,
-        onSuccess: onSuccess,
-        onError: onError,
-        select: (data) => {
-            const superHeroNames = data.data.map(hero => hero.name)
-            return superHeroNames;
-        }
-
-    });
+    const {data, isLoading, isFetching, isError, error, refetch} = useSuperHeroesData(onSuccess, onError);
 
     if(isError){
         return <h2 style={{margin: "30px", color:"red"}}>{error.message}</h2>
