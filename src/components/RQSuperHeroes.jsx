@@ -26,6 +26,10 @@ const RQSuperHeroes = () => {
         enabled: false,
         onSuccess: onSuccess,
         onError: onError,
+        select: (data) => {
+            const superHeroNames = data.data.map(hero => hero.name)
+            return superHeroNames;
+        }
 
     });
 
@@ -42,8 +46,8 @@ const RQSuperHeroes = () => {
             <h2 style={{margin: "30px"}}>Loading...</h2> :
             <ul>
             {
-                data?.data.map((hero) => {
-                    return <li style={{listStyle: "none"}} key={hero.id}>{hero.name}</li>
+                data.map((heroName) => {
+                    return <li style={{listStyle: "none"}} key={heroName}>{heroName}</li>
                 })
             }
             </ul>
