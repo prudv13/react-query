@@ -8,8 +8,19 @@ function fetchSuperHeroes(){
 
 const RQSuperHeroes = () => {
 
-    const {data, isLoading, isError, error} = useQuery(['super-heroes'], () => fetchSuperHeroes());
+    const {data, isLoading, isFetching, isError, error} = useQuery(['super-heroes'], () => fetchSuperHeroes(), {
+        //cacheTime: 5000,
+        //staleTime: 30000,
+        //refetchOnMount: true, false, 'always',
+        //refetchOnWindowFocus: true, false,
+        //refetchInterval: false, 2000,
+        //refetchIntervalInBackground: true,
+    });
     
+    if(isLoading || isFetching) {
+        return <h2 style={{margin: "30px"}}>Loading...</h2>
+    }
+
     if(isLoading) {
         return <h2 style={{margin: "30px"}}>Loading...</h2>
     }
