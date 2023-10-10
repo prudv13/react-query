@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import useSuperHeroesData from '../hooks/useSuperHeroesData';
 
 
@@ -26,8 +27,10 @@ const RQSuperHeroes = () => {
             <h2 style={{margin: "30px"}}>Loading...</h2> :
             <ul>
             {
-                data.map((heroName) => {
-                    return <li style={{listStyle: "none"}} key={heroName}>{heroName}</li>
+                data?.data.map((hero) => {
+                    return  <li style={{listStyle: "none"}} key={hero.id}>
+                                <Link to={`/rq-super-heroes/${hero.id}`} style={{textDecoration: "none"}}>{hero.name}</Link>
+                            </li>
                 })
             }
             </ul>
