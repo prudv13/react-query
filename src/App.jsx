@@ -8,6 +8,7 @@ import ParallelQueries from "./components/ParallelQueries";
 import DynamicParallelQueries from "./components/DynamicParallelQueries";
 import DependentQueries from "./components/DependentQueries";
 import PaginatedQueries from "./components/PaginatedQueries";
+import InfiniteQueries from "./components/InfiniteQueries";
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/dynamic-parallel-queries'  element={<DynamicParallelQueries heroIds={[1,3]} />} />
         <Route path='/dependent-queries' element={<DependentQueries email='vishwas@example.com' />} />
         <Route path='/paginated-queries' element={<PaginatedQueries />} />
+        <Route path='/infinite-queries' element={<InfiniteQueries />} />
       </Routes>
     </div>
   );
