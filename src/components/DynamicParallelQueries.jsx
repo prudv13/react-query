@@ -6,7 +6,7 @@ const fetchSuperHero = (heroId) => {
 };
 
 const DynamicParallelQueries = ({heroIds}) => {
-    console.log(heroIds);
+    //console.log(heroIds);
     const queryResults = useQueries({
         queries: heroIds.map((id) => (
             {
@@ -17,7 +17,7 @@ const DynamicParallelQueries = ({heroIds}) => {
         )
     })
 
-    console.log({queryResults})
+    //console.log({queryResults})
   return (
     <div></div>
   )

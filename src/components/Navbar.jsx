@@ -20,6 +20,9 @@ const Navbar = () => {
             <li>
                 <Link to="/dynamic-parallel-queries">Dynamic Parallel Queries</Link>
             </li>
+            <li>
+                <Link to="/dependent-queries">Dependent Queries</Link>
+            </li>
         </ul>
     </nav>
   )
