@@ -19,7 +19,7 @@ const DependentQueries = ({email}) => {
     enabled: !!channelId,
    });
 
-   console.log(courses.data.courses[0]);
+   //console.log(courses.data.courses[0]);
 
   return (
     <div style={{margin: '25px'}}>
