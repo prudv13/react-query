@@ -7,6 +7,7 @@ import RQSuperHero from "./components/RQSuperHero";
 import ParallelQueries from "./components/ParallelQueries";
 import DynamicParallelQueries from "./components/DynamicParallelQueries";
 import DependentQueries from "./components/DependentQueries";
+import PaginatedQueries from "./components/PaginatedQueries";
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/parallel-queries' element={<ParallelQueries />} />
         <Route path='/dynamic-parallel-queries'  element={<DynamicParallelQueries heroIds={[1,3]} />} />
         <Route path='/dependent-queries' element={<DependentQueries email='vishwas@example.com' />} />
+        <Route path='/paginated-queries' element={<PaginatedQueries />} />
       </Routes>
     </div>
   );
