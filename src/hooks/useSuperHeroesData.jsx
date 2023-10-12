@@ -29,7 +29,11 @@ const addSuperHero = (hero) => {
 };
 
 export const useAddSuperHeroData = () => {
-    return useMutation(addSuperHero)
+    return useMutation(addSuperHero, {
+        onSuccess: () => {
+            queryClient.invalidateQueries('super-heroes')
+        }
+    })
 };
 
 export default useSuperHeroesData;
