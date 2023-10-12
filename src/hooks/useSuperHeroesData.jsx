@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
 function fetchSuperHeroes(){
@@ -23,5 +23,13 @@ const useSuperHeroesData = (onSuccess, onError) => {
 
     });
 }
+
+const addSuperHero = (hero) => {
+    return axios.post('http://localhost:4000/superheroes', hero);
+};
+
+export const useAddSuperHeroData = () => {
+    return useMutation(addSuperHero)
+};
 
 export default useSuperHeroesData;
